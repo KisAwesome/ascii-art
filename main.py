@@ -1,4 +1,6 @@
 from PIL import Image
+import sys
+import os
 
 ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
 
@@ -24,8 +26,13 @@ def pixels_to_ascii(image):
 
 def main(new_width=100):
 
-    path = input("image>")
+    if not  len(sys.argv)>1:
+        return print('Image path must be the first argument')
+    
+    if not os.path.exists(sys.argv[1]):
+        return print('Image does not exist')
 
+    path = sys.argv[1]
     image = Image.open(path)
 
     new_image_data = pixels_to_ascii(grayscale(resize_image(image)))
