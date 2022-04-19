@@ -1,4 +1,4 @@
-Turns Images in to asci art
+Turns Images in to ascii art
 
 Example:
 python3 main.py image.png
